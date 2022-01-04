@@ -1,6 +1,8 @@
 version: '3'
 services:
     web:
+        image: ng_image
+        container_name: ng_lunes
         build: .
         ports: 
             - "4200:4200"
@@ -8,3 +10,4 @@ services:
         volumes:
             - "/app/node_modules" 
             - ".:/app"
+            

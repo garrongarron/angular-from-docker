@@ -1,0 +1,25 @@
+<div *ngIf="!name; else aaa">
+    <form [formGroup]="rForm" (ngSubmit)="send(rForm.value)">
+
+        <input type="text" placeholder="text" formControlName="name">
+        <b *ngIf="(!rForm.controls['name'].valid && rForm.controls['name'].touched)">{{ alertName }}</b><br>
+
+
+        <input type="text" placeholder="description" formControlName="description">
+        <b *ngIf="(!rForm.controls['description'].valid && rForm.controls['description'].touched)">{{ alertDescription }}</b><br>
+
+
+        <input type="text" placeholder="custom" formControlName="custom">
+        <b *ngIf="(!rForm.controls['custom'].valid && rForm.controls['custom'].touched)">{{ alertCustom }}</b><br>
+
+
+
+        Min 3 <input type="checkbox" value="1" formControlName="modifier">
+        <input type="submit" value="send" [disabled]="!rForm.valid">
+    </form>
+</div>
+<ng-template #aaa>
+    <b>{{ name }}</b><span>says:</span>
+    <p><i>{{ description }}</i></p>
+</ng-template>
+

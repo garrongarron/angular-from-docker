@@ -1,0 +1,6 @@
+<b>footer:</b> {{ title }}
+<app-child 
+    *ngFor="let name of names" 
+    [p]="name"
+    (emitter)="dataFromChild($event)">
+</app-child>
